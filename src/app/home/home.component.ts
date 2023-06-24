@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Foods } from '../shared/models/food';
 import { FoodService } from '../service/food.service';
-import { NgModel } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,12 +10,20 @@ import { NgModel } from '@angular/forms';
 })
 export class HomeComponent {
   value:number | undefined;
-  food:Foods[]=[];
-  constructor(private fs:FoodService){}
+  foods:Foods[]=[];
+  constructor(private fs:FoodService,private route:ActivatedRoute){}
 
 
   ngOnInit(): void {
-      this.food=this.fs.getAll();
+
+      this.route.params.subscribe(params=>{
+        if(params['searchItem'])
+        this.foods= this.fs.getAll().filter(food => food.name.toLowerCase().includes(params['searchItem'].toLowerCase()))
+        else if(params['tag'])
+        this.foods=this.fs.getFoodByTag(params['tag'])
+        else
+        this.foods=this.fs.getAll();
+      })
   }
 
 }

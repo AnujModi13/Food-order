@@ -7,6 +7,11 @@ import { Foods } from '../shared/models/food';
 export class FoodService {
 
   constructor() { }
+  getFoodByTag(tag :string) :Foods[]
+  {
+    return tag=='All'?this.getAll(): this.getAll().filter(food => food.tags?.
+      includes(tag));
+  }
   getAll() : Foods[]
   {
    return[
@@ -34,7 +39,7 @@ export class FoodService {
     },
     {
       id:3,
-      name:'Potato Meat',
+      name:' Rice',
       cookTime:'30-40',
       price:230,
       favourite:false,
@@ -94,7 +99,7 @@ export class FoodService {
       price:230,
       favourite:true,
       origins:['India','Dubai'],
-      star:4,
+      star:4.1,
       imageUrl:'/assets/Image-8.jpg',
       tags:['FastFood','Lunch','Dinner'],
     }
