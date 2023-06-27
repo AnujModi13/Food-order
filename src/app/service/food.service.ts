@@ -8,6 +8,10 @@ import { tags } from '../shared/models/tags';
 export class FoodService {
 
   constructor() { }
+  getFoodById(id:number):Foods
+  {
+   return this.getAll().find(food =>food.id ==id)!;
+  }
   getFoodByTag(tag :string) :Foods[]
   {
     return tag=='All'?this.getAll(): this.getAll().filter(food => food.tags?.
