@@ -98,3 +98,17 @@ font-weight: bold;
   color:black;
 }
 
+.details button{
+  color: white;
+  background-color: #e72929;
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.details button:hover{
+  cursor: pointer;
+  opacity:0.9;
+}
