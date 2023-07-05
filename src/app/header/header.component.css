@@ -2,6 +2,7 @@ header{
   background-color: white;
   padding: 0;
   border-bottom: 1px solid #e72929;
+  font-size: large;
 }
 
 a{
@@ -16,7 +17,8 @@ a:hover{
 .container{
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
+
 }
 
 a.logo{
@@ -26,9 +28,17 @@ a.logo{
 nav ul{
   list-style-type: none;
   margin: 0;
+  padding: 0;
+
 }
 
 nav ul li a {
   padding: 1em;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+
+}
+
+a.cart{
+  font-weight: bold;
 }

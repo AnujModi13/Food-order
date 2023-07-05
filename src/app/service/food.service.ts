@@ -49,7 +49,7 @@ export class FoodService {
       id:2,
       name:'Potato Meat',
       cookTime:'30-40',
-      price:230,
+      price:230.45,
       favourite:true,
       origins:['India','Dubai'],
       star:3.5,

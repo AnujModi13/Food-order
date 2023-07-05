@@ -23,7 +23,7 @@
           </select>
         </div>
 
-        <div>{{ cartitems.price | currency }}</div>
+        <div style="font-weight: 500;"> &#x20B9;  {{ cartitems.price  }}</div>
 
         <div>
           <button class="remove-button" (click)="removeFromCart(cartitems)">Remove</button>
@@ -37,11 +37,12 @@
       {{ cart.items.length }}
     </div>
     <div class="total-price">
-      {{ cart.totalPrice | currency }}
+      &#8377; {{ cart.totalPrice }}
     </div>
-    <button class="proceed">
+    <button class="proceed" (click)="pay()">Click to Proceed</button>
+    <!-- <button class="proceed">
       Click to Proceed
-    </button>
+    </button> -->
   </div>
 </div>
 

@@ -2,12 +2,20 @@ import { Injectable } from '@angular/core';
 import { Cart } from '../shared/models/cart';
 import { Foods } from '../shared/models/food';
 import { CartItems } from '../shared/models/cartItems';
+
+function _window() : any {
+  return window;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private cart: Cart = new Cart();
   constructor() { }
+  get nativeWindow() : any {
+    return _window();
+ }
   addToCart(food: Foods) {
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
     if (cartItem) {
